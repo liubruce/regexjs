@@ -23,7 +23,7 @@ let pos = 0;
 
 const peek = () => pattern[pos];
 const hasMoreChars = () => pos < pattern.length;
-const isMetaChar = ch => ch === '*';// || ch === '+' || ch === '?';
+const isMetaChar = ch => ch === '*'|| ch === '.';// || ch === '?';
 
 function match(ch) {
     // if (peek() !== ch)

@@ -130,6 +130,21 @@ function oneOrMore(nfa) {
 }
 
 /*
+    Any one of an NFA.
+*/
+
+function eitherOne(nfa) {
+	const start = createState(false);
+	const end = createState(true);
+
+	addEpsilonTransition(start, nfa.start);
+	addEpsilonTransition(nfa.end, end);
+	addEpsilonTransition(nfa.end, nfa.start);
+	nfa.end.isEnd = false;
+
+	return { start, end };
+}
+/*
   Converts a postfix regular expression into a Thompson NFA.
 */
 function toNFA(postfixExp) {
@@ -142,10 +157,9 @@ function toNFA(postfixExp) {
     for (const token of postfixExp) {
         if (token === '*') {
             stack.push(closure(stack.pop()));
-        // }
-        // else if (token === "?") {
-        //     stack.push(zeroOrOne(stack.pop()));
-        // }
+        }
+        else if (token === ".") {
+            stack.push(eitherOne(stack.pop()));
         // else if (token === "+") {
         //     stack.push(oneOrMore(stack.pop()));
         } else if (token === '|') {

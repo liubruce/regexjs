@@ -40,7 +40,7 @@ NO:  .. with abc
 NO:  .. with a
 NO:  .. with ()
 NO:  a. with ab
-NO:  a. with a
+YES: a. with a
 NO:  a. with abc
 NO:  a. with a(
 NO:  .b with ab
@@ -48,7 +48,7 @@ NO:  .b with b
 NO:  .b with aab
 NO:  .b with *b
 NO:  a.c with abc
-NO:  a.c with ac
+YES: a.c with ac
 NO:  a.c with ab
 NO:  a.c with aac
 NO:  ab.c.. with abacus
@@ -114,7 +114,7 @@ NO:  .|.. with ab
 NO:  .|.. with 
 NO:  .|.. with abc
 NO:  hello.world with hello world
-NO:  hello.world with helloworld
+YES: hello.world with helloworld
 YES: ((a|bc)|d) with a
 YES: ((a|bc)|d) with bc
 YES: ((a|bc)|d) with d
@@ -189,7 +189,7 @@ YES: (X.)* with
 NO:  (X.)* with Xa
 NO:  (X.)* with XaXb
 NO:  (X.)* with XaXXXc
-NO:  (X.)* with X
+YES: (X.)* with X
 NO:  (X.)* with XXa
 NO:  (X.)* with XabX
 NO:  (X.)* with XyXXy

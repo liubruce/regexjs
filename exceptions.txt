@@ -3,10 +3,12 @@
 38 YES: .. with ab but my is NO:  .. with ab
 41 YES: .. with () but my is NO:  .. with ()
 42 YES: a. with ab but my is NO:  a. with ab
+43 NO:  a. with a but my is YES: a. with a
 45 YES: a. with a( but my is NO:  a. with a(
 46 YES: .b with ab but my is NO:  .b with ab
 49 YES: .b with *b but my is NO:  .b with *b
 50 YES: a.c with abc but my is NO:  a.c with abc
+51 NO:  a.c with ac but my is YES: a.c with ac
 53 YES: a.c with aac but my is NO:  a.c with aac
 54 YES: ab.c.. with abacus but my is NO:  ab.c.. with abacus
 57 YES: ab.c.. with abacas but my is NO:  ab.c.. with abacas
@@ -21,6 +23,7 @@
 112 YES: .|.. with a but my is NO:  .|.. with a
 113 YES: .|.. with ab but my is NO:  .|.. with ab
 116 YES: hello.world with hello world but my is NO:  hello.world with hello world
+117 NO:  hello.world with helloworld but my is YES: hello.world with helloworld
 124 YES: (ab|.)(|d) with ab but my is NO:  (ab|.)(|d) with ab
 125 YES: (ab|.)(|d) with abd but my is NO:  (ab|.)(|d) with abd
 126 YES: (ab|.)(|d) with X but my is NO:  (ab|.)(|d) with X
@@ -37,6 +40,7 @@
 189 YES: (X.)* with Xa but my is NO:  (X.)* with Xa
 190 YES: (X.)* with XaXb but my is NO:  (X.)* with XaXb
 191 YES: (X.)* with XaXXXc but my is NO:  (X.)* with XaXXXc
+192 NO:  (X.)* with X but my is YES: (X.)* with X
 196 YES: (.y)* with syzygy but my is NO:  (.y)* with syzygy
 197 YES: (.y)* with my but my is NO:  (.y)* with my
 262 YES: (<.*>(.*)</(.*)>)* with <a>b</a> but my is NO:  (<.*>(.*)</(.*)>)* with <a>b</a>
