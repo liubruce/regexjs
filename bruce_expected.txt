@@ -1,0 +1,300 @@
+YES: a with a
+NO:  a with b
+NO:  b with a
+YES: b with b
+YES: abc with abc
+NO:  abc with abcd
+NO:  xyz with xy
+YES: xyz with xyz
+NO:  hello with hello world
+YES: hello with hello
+YES: !@#$%^& with !@#$%^&
+NO:  \\ with \
+YES: [ab] with [ab]
+NO:  [ab] with a
+NO:  a+ with a+
+YES: a+ with a
+NO:  [^a] with b
+YES: [^a] with [^a]
+NO:  a$ with a
+YES: a$ with a$
+NO:  why? with why?
+YES: why? with wh
+NO:  a{2} with aa
+YES: a{2} with a{2}
+YES: \[ with \[
+NO:  \[ with [
+YES: x^2 with x^2
+NO:  x^2 with xx
+NO:  $5 with 5
+YES: $5 with $5
+NO:  $5 with $
+NO:  $5 with 
+NO:  a?? with 
+NO:  . with a
+NO:  . with 
+NO:  . with x
+NO:  . with pq
+NO:  .. with ab
+NO:  .. with abc
+NO:  .. with a
+NO:  .. with ()
+NO:  a. with ab
+NO:  a. with a
+NO:  a. with abc
+NO:  a. with a(
+NO:  .b with ab
+NO:  .b with b
+NO:  .b with aab
+NO:  .b with *b
+NO:  a.c with abc
+NO:  a.c with ac
+NO:  a.c with ab
+NO:  a.c with aac
+NO:  ab.c.. with abacus
+NO:  ab.c.. with abacuses
+NO:  ab.c.. with abac
+NO:  ab.c.. with abacas
+NO:  v...z with vwxyz
+NO:  v...z with v12z
+NO:  ...z with wxyz
+NO:  ...z with xyz
+NO:  ...z with vwxyz
+NO:  ...z with z
+YES: (a) with a
+NO:  (a) with b
+YES: (a)b with ab
+NO:  (a)b with abb
+YES: a(b) with ab
+NO:  a(b) with aab
+NO:  (.) with X
+NO:  (.) with 
+NO:  (..) with XY
+NO:  (..) with (XY)
+YES: a(b(c)) with abc
+NO:  a(b(c)) with abcd
+YES: ((a)b)c with abc
+NO:  ((a)b)c with ab
+YES: (a)(b) with ab
+NO:  (a)(b) with abc
+YES: a|b with a
+YES: a|b with b
+NO:  a|b with ab
+NO:  a|b with a|b
+YES: a|b|c with a
+YES: a|b|c with b
+YES: a|b|c with c
+NO:  a|b|c with A
+NO:  a|b|c with bb
+NO:  a|b|c with 
+YES: a| with a
+NO:  a| with 
+NO:  a| with b
+NO:  a| with aa
+NO:  |b with b
+NO:  |b with 
+NO:  |b with a
+NO:  |b with bb
+NO:  a||c with 
+NO:  a||c with b
+YES: ab|cd with ab
+YES: ab|cd with cd
+NO:  ab|cd with abcd
+NO:  ab|cd with 
+YES: (a|b)(c|d) with ac
+YES: (a|b)(c|d) with ad
+YES: (a|b)(c|d) with bc
+YES: (a|b)(c|d) with bd
+NO:  (a|b)(c|d) with ab
+NO:  (a|b)(c|d) with abcd
+NO:  (a|b)(c|d) with b
+NO:  (a|b)(c|d) with c
+NO:  .|.. with a
+NO:  .|.. with ab
+NO:  .|.. with 
+NO:  .|.. with abc
+NO:  hello.world with hello world
+NO:  hello.world with helloworld
+YES: ((a|bc)|d) with a
+YES: ((a|bc)|d) with bc
+YES: ((a|bc)|d) with d
+NO:  ((a|bc)|d) with ad
+NO:  ((a|bc)|d) with bcd
+NO:  ((a|bc)|d) with 
+NO:  (ab|.)(|d) with ab
+NO:  (ab|.)(|d) with abd
+NO:  (ab|.)(|d) with X
+NO:  (ab|.)(|d) with Xd
+NO:  (ab|.)(|d) with abcd
+NO:  (ab|.)(|d) with abc
+NO:  (ab|.)(|d) with d
+NO:  (ab|.)(|d) with XX
+NO:  (ab|.)(|d) with add
+NO:  (ab|.)(|d) with 
+NO:  .|... with x
+NO:  .|... with xyz
+NO:  .|... with xy
+NO:  .|... with wxyz
+YES: a\|b with a\
+YES: a\|b with b
+NO:  a\|b with a
+NO:  a\|b with a\|b
+YES: a* with a
+YES: a* with 
+YES: a* with aa
+YES: a* with aaa
+NO:  a* with b
+NO:  a* with bbb
+NO:  a* with a*
+NO:  a* with *
+YES: a*b with b
+YES: a*b with ab
+NO:  a*b with abb
+YES: a*b with aab
+NO:  a*b with bb
+NO:  a*b with a*b
+YES: ab* with a
+YES: ab* with ab
+YES: ab* with abbb
+NO:  ab* with b
+NO:  ab* with abc
+NO:  ab* with ab*
+YES: (ab)* with ab
+YES: (ab)* with 
+YES: (ab)* with abab
+YES: (ab)* with ababab
+NO:  (ab)* with abc
+NO:  (ab)* with (ab)*
+NO:  (ab)* with abb
+NO:  (ab)* with aabb
+YES: 1(11)* with 1
+NO:  1(11)* with 11
+YES: 1(11)* with 111
+NO:  1(11)* with 1111
+NO:  .* with hello
+YES: .* with 
+NO:  ..* with x
+NO:  ..* with xy
+NO:  ..* with 
+NO:  ..* with xyz
+YES: (..)* with 
+NO:  (..)* with x
+NO:  (..)* with xy
+NO:  (..)* with xyz
+NO:  (..)* with wxyz
+NO:  (..)* with abcde
+NO:  (..)* with 1234567
+NO:  (..)* with (..)*
+YES: (X.)* with 
+NO:  (X.)* with Xa
+NO:  (X.)* with XaXb
+NO:  (X.)* with XaXXXc
+NO:  (X.)* with X
+NO:  (X.)* with XXa
+NO:  (X.)* with XabX
+NO:  (X.)* with XyXXy
+NO:  (.y)* with syzygy
+NO:  (.y)* with my
+NO:  (.y)* with thy
+NO:  (.y)* with (.y)*
+NO:  (.y)* with yyy
+NO:  (.y)* with bye
+YES: a*? with ?
+NO:  a*? with aa
+YES: (a|b)* with a
+YES: (a|b)* with b
+YES: (a|b)* with aa
+YES: (a|b)* with bb
+YES: (a|b)* with ab
+YES: (a|b)* with ba
+YES: (a|b)* with aab
+YES: (a|b)* with bab
+NO:  (a|b)* with c
+NO:  (a|b)* with ac
+NO:  (a|b)* with abc
+NO:  (a|b)* with cab
+NO:  (a|b)* with bbbbbbc
+NO:  (a|b)* with x
+NO:  (a|b)* with a|ba|b
+NO:  (a|b)* with A
+YES: a|b* with a
+YES: a|b* with 
+YES: a|b* with b
+YES: a|b* with bbb
+NO:  a|b* with aa
+NO:  a|b* with ab
+NO:  a|b* with c
+NO:  a|b* with ba
+YES: (ab|c)* with ab
+YES: (ab|c)* with cab
+YES: (ab|c)* with abc
+YES: (ab|c)* with ababcc
+NO:  (ab|c)* with a
+NO:  (ab|c)* with b
+NO:  (ab|c)* with d
+NO:  (ab|c)* with ab|c
+NO:  ab*|c*d with 
+YES: ab*|c*d with ab
+YES: ab*|c*d with a
+YES: ab*|c*d with abbb
+YES: ab*|c*d with d
+YES: ab*|c*d with cccd
+YES: ab*|c*d with cd
+NO:  ab*|c*d with ad
+NO:  ab*|c*d with aa
+NO:  ab*|c*d with dd
+NO:  ab*|c*d with bbc
+NO:  ab*|c*d with abab
+YES: ((hello|hi) (world|earth)! )* with hello world! 
+YES: ((hello|hi) (world|earth)! )* with hi world! 
+YES: ((hello|hi) (world|earth)! )* with hi earth! 
+YES: ((hello|hi) (world|earth)! )* with hello earth! 
+YES: ((hello|hi) (world|earth)! )* with hello world! hi earth! 
+YES: ((hello|hi) (world|earth)! )* with hi earth! hello world! hi world! 
+YES: ((hello|hi) (world|earth)! )* with 
+NO:  ((hello|hi) (world|earth)! )* with hello world
+NO:  ((hello|hi) (world|earth)! )* with helloworld! 
+NO:  ((hello|hi) (world|earth)! )* with hello hi world earth! 
+NO:  ((hello|hi) (world|earth)! )* with hello world! world! 
+NO:  ((hello|hi) (world|earth)! )* with hi hi earth! 
+NO:  ((hello|hi) (world|earth)! )* with hello world!  
+NO:  ((hello|hi) (world|earth)! )* with hi earth! ! 
+NO:  (<.*>(.*)</(.*)>)* with <a>b</a>
+NO:  (<.*>(.*)</(.*)>)* with <a>b</c>
+NO:  (<.*>(.*)</(.*)>)* with <>b</a>
+NO:  (<.*>(.*)</(.*)>)* with <a href="#"></a>
+YES: (<.*>(.*)</(.*)>)* with 
+NO:  (<.*>(.*)</(.*)>)* with <></><>
+NO:  (<.*>(.*)</(.*)>)* with <a>b</a><b>a</b>
+NO:  (<.*>(.*)</(.*)>)* with <br /><a href="#hello">hi</a>
+NO:  (<.*>(.*)</(.*)>)* with <a>b<a>
+NO:  (<.*>(.*)</(.*)>)* with hello
+NO:  (<.*>(.*)</(.*)>)* with <br />
+NO:  (<.*>(.*)</(.*)>)* with <em>
+NO:  (<.*>(.*)</(.*)>)* with </i>
+NO:  (<.*>(.*)</(.*)>)* with </i><i>
+NO:  (<.*>(.*)</(.*)>)* with <</>
+NO:  (<.*>(.*)</(.*)>)* with </>
+YES: (ab*)* with 
+YES: (ab*)* with aa
+YES: (ab*)* with abab
+YES: (ab*)* with abbaab
+NO:  (ab*)* with baa
+NO:  (ab*)* with abc
+NO:  (ab*)* with b
+NO:  (ab*)* with aaabbbac
+YES: (X*)* with XXXXX
+YES: ((H*)*)* with 
+YES: ((H*)*)* with H
+YES: ((H*)*)* with HHH
+YES: ((H*)*)* with HHHHH
+NO:  ( with -
+NO:  ) with -
+NO:  * with -
+YES: (a with a
+YES: (a(b) with ab
+YES: (a(b))) with ab
+YES: a|* with a
+NO:  [^(]* with aa
+NO:  \(a with error
+NO:  (*a) with a

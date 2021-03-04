@@ -48,7 +48,7 @@ function getResultText(result) {
 (async function processLineByLine() {
 	try {
 		const rl = createInterface({
-			input: createReadStream('./expressions.txt'),
+			input: createReadStream('../data/expressions.txt'),
 			crlfDelay: Infinity
 		});
 
@@ -57,7 +57,7 @@ function getResultText(result) {
 		});
 
 		const rlTarget = createInterface({
-			input: createReadStream('./targets.txt'),
+			input: createReadStream('../data/targets.txt'),
 			crlfDelay: Infinity
 		});
 
@@ -66,7 +66,7 @@ function getResultText(result) {
 		});
 
 		const rlOriginExpected = createInterface({
-			input: createReadStream('./src/expected.txt'),
+			input: createReadStream('../data/expected.txt'),
 			crlfDelay: Infinity
 		});
 
@@ -110,21 +110,6 @@ function getResultText(result) {
 			exceptionFile.end();
 		}
 
-		// if (i === expressions.length) {
-		// 	const file = fs.createWriteStream('bruce_expected.txt');
-		// 	file.on('error', function(err) {
-		// 		console.log('write error:', err);
-		// 	});
-		// 	expected.forEach(function(v) { file.write(v + '\n'); });
-		// 	file.end();
-		//
-		// 	const exceptionFile = fs.createWriteStream('exceptions.txt');
-		// 	exceptionFile.on('error', function(err) {
-		// 		console.log('write error:', err);
-		// 	});
-		// 	exceptioned.forEach(function(v) { exceptionFile.write(v + '\n'); });
-		// 	exceptionFile.end();
-		// }
 
 	} catch (err) {
 		console.error(err);

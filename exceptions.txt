@@ -1,0 +1,62 @@
+15 YES: a+ with a+ but my is NO:  a+ with a+
+16 NO:  a+ with a but my is YES: a+ with a
+21 YES: why? with why? but my is NO:  why? with why?
+22 NO:  why? with wh but my is YES: why? with wh
+34 YES: . with a but my is NO:  . with a
+36 YES: . with x but my is NO:  . with x
+38 YES: .. with ab but my is NO:  .. with ab
+41 YES: .. with () but my is NO:  .. with ()
+42 YES: a. with ab but my is NO:  a. with ab
+45 YES: a. with a( but my is NO:  a. with a(
+46 YES: .b with ab but my is NO:  .b with ab
+49 YES: .b with *b but my is NO:  .b with *b
+50 YES: a.c with abc but my is NO:  a.c with abc
+53 YES: a.c with aac but my is NO:  a.c with aac
+54 YES: ab.c.. with abacus but my is NO:  ab.c.. with abacus
+57 YES: ab.c.. with abacas but my is NO:  ab.c.. with abacas
+58 YES: v...z with vwxyz but my is NO:  v...z with vwxyz
+60 YES: ...z with wxyz but my is NO:  ...z with wxyz
+70 YES: (.) with X but my is NO:  (.) with X
+72 YES: (..) with XY but my is NO:  (..) with XY
+91 YES: a| with  but my is NO:  a| with 
+94 YES: |b with b but my is NO:  |b with b
+95 YES: |b with  but my is NO:  |b with 
+98 YES: a||c with  but my is NO:  a||c with 
+112 YES: .|.. with a but my is NO:  .|.. with a
+113 YES: .|.. with ab but my is NO:  .|.. with ab
+116 YES: hello.world with hello world but my is NO:  hello.world with hello world
+124 YES: (ab|.)(|d) with ab but my is NO:  (ab|.)(|d) with ab
+125 YES: (ab|.)(|d) with abd but my is NO:  (ab|.)(|d) with abd
+126 YES: (ab|.)(|d) with X but my is NO:  (ab|.)(|d) with X
+127 YES: (ab|.)(|d) with Xd but my is NO:  (ab|.)(|d) with Xd
+130 YES: (ab|.)(|d) with d but my is NO:  (ab|.)(|d) with d
+134 YES: .|... with x but my is NO:  .|... with x
+135 YES: .|... with xyz but my is NO:  .|... with xyz
+174 YES: .* with hello but my is NO:  .* with hello
+176 YES: ..* with x but my is NO:  ..* with x
+177 YES: ..* with xy but my is NO:  ..* with xy
+179 YES: ..* with xyz but my is NO:  ..* with xyz
+182 YES: (..)* with xy but my is NO:  (..)* with xy
+184 YES: (..)* with wxyz but my is NO:  (..)* with wxyz
+189 YES: (X.)* with Xa but my is NO:  (X.)* with Xa
+190 YES: (X.)* with XaXb but my is NO:  (X.)* with XaXb
+191 YES: (X.)* with XaXXXc but my is NO:  (X.)* with XaXXXc
+196 YES: (.y)* with syzygy but my is NO:  (.y)* with syzygy
+197 YES: (.y)* with my but my is NO:  (.y)* with my
+262 YES: (<.*>(.*)</(.*)>)* with <a>b</a> but my is NO:  (<.*>(.*)</(.*)>)* with <a>b</a>
+263 YES: (<.*>(.*)</(.*)>)* with <a>b</c> but my is NO:  (<.*>(.*)</(.*)>)* with <a>b</c>
+264 YES: (<.*>(.*)</(.*)>)* with <>b</a> but my is NO:  (<.*>(.*)</(.*)>)* with <>b</a>
+265 YES: (<.*>(.*)</(.*)>)* with <a href="#"></a> but my is NO:  (<.*>(.*)</(.*)>)* with <a href="#"></a>
+267 YES: (<.*>(.*)</(.*)>)* with <></><> but my is NO:  (<.*>(.*)</(.*)>)* with <></><>
+268 YES: (<.*>(.*)</(.*)>)* with <a>b</a><b>a</b> but my is NO:  (<.*>(.*)</(.*)>)* with <a>b</a><b>a</b>
+269 YES: (<.*>(.*)</(.*)>)* with <br /><a href="#hello">hi</a> but my is NO:  (<.*>(.*)</(.*)>)* with <br /><a href="#hello">hi</a>
+291 SYNTAX ERROR: ( with - but my is NO:  ( with -
+292 SYNTAX ERROR: ) with - but my is NO:  ) with -
+293 SYNTAX ERROR: * with - but my is NO:  * with -
+294 SYNTAX ERROR: (a with a but my is YES: (a with a
+295 SYNTAX ERROR: (a(b) with ab but my is YES: (a(b) with ab
+296 SYNTAX ERROR: (a(b))) with ab but my is YES: (a(b))) with ab
+297 SYNTAX ERROR: a|* with a but my is YES: a|* with a
+298 SYNTAX ERROR: [^(]* with aa but my is NO:  [^(]* with aa
+299 SYNTAX ERROR: \(a with error but my is NO:  \(a with error
+300 SYNTAX ERROR: (*a) with a but my is NO:  (*a) with a

@@ -26,8 +26,8 @@ const hasMoreChars = () => pos < pattern.length;
 const isMetaChar = ch => ch === '*' || ch === '+' || ch === '?';
 
 function match(ch) {
-    if (peek() !== ch)
-        throw new Error(`Unexpected symbol ${ch}`);
+    // if (peek() !== ch)
+    //     throw new Error(`Unexpected symbol ${ch}`);
     pos++;
 }
 
@@ -85,13 +85,13 @@ function atom() {
 }
 
 function char() {
-    if (isMetaChar(peek()))
-        throw new Error(`Unexpected meta char ${peek()}`);
-
-    if (peek() === '\\') {
-        match('\\');
-        return new TreeNode('Char', [new TreeNode('\\'), new TreeNode(next())]);
-    }
+    // if (isMetaChar(peek()))
+    //     throw new Error(`Unexpected meta char ${peek()}`);
+		//
+    // if (peek() === '\\') {
+    //     match('\\');
+    //     return new TreeNode('Char', [new TreeNode('\\'), new TreeNode(next())]);
+    // }
 
     return new TreeNode('Char', [new TreeNode(next())]);
 }
