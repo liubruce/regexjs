@@ -29,7 +29,7 @@ function peek(stack) {
 
 const operatorPrecedence = {
     '|': 0,
-    '.': 1,
+    '_': 1,
     '?': 2,
     '*': 2,
     '+': 2
