@@ -142,15 +142,17 @@ function toNFA(postfixExp) {
     for (const token of postfixExp) {
         if (token === '*') {
             stack.push(closure(stack.pop()));
-        } else if (token === "?") {
-            stack.push(zeroOrOne(stack.pop()));
-        } else if (token === "+") {
-            stack.push(oneOrMore(stack.pop()));
+        // }
+        // else if (token === "?") {
+        //     stack.push(zeroOrOne(stack.pop()));
+        // }
+        // else if (token === "+") {
+        //     stack.push(oneOrMore(stack.pop()));
         } else if (token === '|') {
             const right = stack.pop();
             const left = stack.pop();
             stack.push(union(left, right));
-        } else if (token === '.') {
+        } else if (token === '_') {
             const right = stack.pop();
             const left = stack.pop();
             stack.push(concat(left, right));
@@ -190,10 +192,10 @@ function toNFAfromParseTree(root) {
             const meta = root.children[1].label;
             if (meta === '*')
                 return closure(atom);
-            if (meta === '+')
-                return oneOrMore(atom);
-            if (meta === '?')
-                return zeroOrOne(atom);
+            // if (meta === '+')
+            //     return oneOrMore(atom);
+            // if (meta === '?')
+            //     return zeroOrOne(atom);
         }
 
         return atom; // Factor -> Atom
