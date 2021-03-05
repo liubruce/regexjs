@@ -139,9 +139,9 @@ function eitherOne(nfa) {
 
 	addEpsilonTransition(start, nfa.start);
 	addEpsilonTransition(nfa.end, end);
-	addEpsilonTransition(nfa.end, nfa.start);
-	nfa.end.isEnd = false;
-
+	//addEpsilonTransition(nfa.end, nfa.start);
+	nfa.end.isEnd = true;
+console.log('enter eitherone');
 	return { start, end };
 }
 /*
@@ -153,12 +153,14 @@ function toNFA(postfixExp) {
     }
 
     const stack = [];
-
+	console.log('toNFA:postfixExp=', postfixExp)
     for (const token of postfixExp) {
+    	console.log('toNFA:token=', token)
         if (token === '*') {
             stack.push(closure(stack.pop()));
         }
         else if (token === ".") {
+    		console.log('token=.')
             stack.push(eitherOne(stack.pop()));
         // else if (token === "+") {
         //     stack.push(oneOrMore(stack.pop()));
@@ -184,6 +186,7 @@ function toNFA(postfixExp) {
 const { toParseTree } = require('./parser2');
 
 function toNFAfromParseTree(root) {
+	console.log('enter toNFAfromParseTree ');
     if (root.label === 'Expr') {
         const term = toNFAfromParseTree(root.children[0]);
         if (root.children.length === 3) // Expr -> Term '|' Expr
@@ -201,13 +204,14 @@ function toNFAfromParseTree(root) {
     }
 
     if (root.label === 'Factor') {
+			console.log('enter toNFAfromParseTree factor', root,'children=',root.children[0]);
         const atom = toNFAfromParseTree(root.children[0]);
         if (root.children.length === 2) { // Factor -> Atom MetaChar
             const meta = root.children[1].label;
             if (meta === '*')
                 return closure(atom);
-            // if (meta === '+')
-            //     return oneOrMore(atom);
+            if (meta === '.')
+                return eitherOne(atom);
             // if (meta === '?')
             //     return zeroOrOne(atom);
         }
@@ -305,21 +309,34 @@ function search(nfa, word) {
     /* The initial set of current states is either the start state or
        the set of states reachable by epsilon transitions from the start state */
     addNextState(nfa.start, currentStates, []);
+    console.log('addNextSttate', currentStates);
+		// if (word === ''){
+		// 	const nextStates = [];
+		// 	for (const state of currentStates) {
+		// 		const nextState = state.transition[undefined];
+		// 		if (nextState) {
+		// 			addNextState(nextState, nextStates, []);
+		// 		}
+		// 	}
+		// 	currentStates = nextStates;
+		// 	return currentStates.find(s => s.isEnd) ? true : false;
+		// }else
+			{
+			for (const symbol of word) {
+				console.log('symbol=',symbol);
+				const nextStates = [];
 
-    for (const symbol of word) {
-        const nextStates = [];
-
-        for (const state of currentStates) {
-            const nextState = state.transition[symbol];
-            if (nextState) {
-                addNextState(nextState, nextStates, []);
-            }
-        }
-
-        currentStates = nextStates;
-    }
-
-    return currentStates.find(s => s.isEnd) ? true : false;
+				for (const state of currentStates) {
+					const nextState = state.transition[symbol] || state.transition['.'];
+					console.log('after symbol ', currentStates, state);
+					if (nextState) {
+						addNextState(nextState, nextStates, []);
+					}
+				}
+				currentStates = nextStates;
+			}
+			return currentStates.find(s => s.isEnd) ? true : false;
+		}
 }
 
 function recognize(nfa, word) {

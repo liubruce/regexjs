@@ -31,33 +31,33 @@ YES: $5 with $5
 NO:  $5 with $
 NO:  $5 with 
 NO:  a?? with 
-NO:  . with a
+YES: . with a
 NO:  . with 
-NO:  . with x
+YES: . with x
 NO:  . with pq
-NO:  .. with ab
+YES: .. with ab
 NO:  .. with abc
 NO:  .. with a
-NO:  .. with ()
-NO:  a. with ab
-YES: a. with a
+YES: .. with ()
+YES: a. with ab
+NO:  a. with a
 NO:  a. with abc
-NO:  a. with a(
-NO:  .b with ab
+YES: a. with a(
+YES: .b with ab
 NO:  .b with b
 NO:  .b with aab
-NO:  .b with *b
-NO:  a.c with abc
-YES: a.c with ac
+YES: .b with *b
+YES: a.c with abc
+NO:  a.c with ac
 NO:  a.c with ab
-NO:  a.c with aac
-NO:  ab.c.. with abacus
+YES: a.c with aac
+YES: ab.c.. with abacus
 NO:  ab.c.. with abacuses
 NO:  ab.c.. with abac
-NO:  ab.c.. with abacas
-NO:  v...z with vwxyz
+YES: ab.c.. with abacas
+YES: v...z with vwxyz
 NO:  v...z with v12z
-NO:  ...z with wxyz
+YES: ...z with wxyz
 NO:  ...z with xyz
 NO:  ...z with vwxyz
 NO:  ...z with z
@@ -67,9 +67,9 @@ YES: (a)b with ab
 NO:  (a)b with abb
 YES: a(b) with ab
 NO:  a(b) with aab
-NO:  (.) with X
+YES: (.) with X
 NO:  (.) with 
-NO:  (..) with XY
+YES: (..) with XY
 NO:  (..) with (XY)
 YES: a(b(c)) with abc
 NO:  a(b(c)) with abcd
@@ -109,12 +109,12 @@ NO:  (a|b)(c|d) with ab
 NO:  (a|b)(c|d) with abcd
 NO:  (a|b)(c|d) with b
 NO:  (a|b)(c|d) with c
-NO:  .|.. with a
-NO:  .|.. with ab
+YES: .|.. with a
+YES: .|.. with ab
 NO:  .|.. with 
 NO:  .|.. with abc
-NO:  hello.world with hello world
-YES: hello.world with helloworld
+YES: hello.world with hello world
+NO:  hello.world with helloworld
 YES: ((a|bc)|d) with a
 YES: ((a|bc)|d) with bc
 YES: ((a|bc)|d) with d
@@ -131,8 +131,8 @@ NO:  (ab|.)(|d) with d
 NO:  (ab|.)(|d) with XX
 NO:  (ab|.)(|d) with add
 NO:  (ab|.)(|d) with 
-NO:  .|... with x
-NO:  .|... with xyz
+YES: .|... with x
+YES: .|... with xyz
 NO:  .|... with xy
 NO:  .|... with wxyz
 YES: a\|b with a\
@@ -171,30 +171,30 @@ YES: 1(11)* with 1
 NO:  1(11)* with 11
 YES: 1(11)* with 111
 NO:  1(11)* with 1111
-NO:  .* with hello
+YES: .* with hello
 YES: .* with 
-NO:  ..* with x
-NO:  ..* with xy
+YES: ..* with x
+YES: ..* with xy
 NO:  ..* with 
-NO:  ..* with xyz
+YES: ..* with xyz
 YES: (..)* with 
 NO:  (..)* with x
-NO:  (..)* with xy
+YES: (..)* with xy
 NO:  (..)* with xyz
-NO:  (..)* with wxyz
+YES: (..)* with wxyz
 NO:  (..)* with abcde
 NO:  (..)* with 1234567
 NO:  (..)* with (..)*
 YES: (X.)* with 
-NO:  (X.)* with Xa
-NO:  (X.)* with XaXb
-NO:  (X.)* with XaXXXc
-YES: (X.)* with X
+YES: (X.)* with Xa
+YES: (X.)* with XaXb
+YES: (X.)* with XaXXXc
+NO:  (X.)* with X
 NO:  (X.)* with XXa
 NO:  (X.)* with XabX
 NO:  (X.)* with XyXXy
-NO:  (.y)* with syzygy
-NO:  (.y)* with my
+YES: (.y)* with syzygy
+YES: (.y)* with my
 NO:  (.y)* with thy
 NO:  (.y)* with (.y)*
 NO:  (.y)* with yyy
@@ -259,14 +259,14 @@ NO:  ((hello|hi) (world|earth)! )* with hello world! world!
 NO:  ((hello|hi) (world|earth)! )* with hi hi earth! 
 NO:  ((hello|hi) (world|earth)! )* with hello world!  
 NO:  ((hello|hi) (world|earth)! )* with hi earth! ! 
-NO:  (<.*>(.*)</(.*)>)* with <a>b</a>
-NO:  (<.*>(.*)</(.*)>)* with <a>b</c>
-NO:  (<.*>(.*)</(.*)>)* with <>b</a>
-NO:  (<.*>(.*)</(.*)>)* with <a href="#"></a>
+YES: (<.*>(.*)</(.*)>)* with <a>b</a>
+YES: (<.*>(.*)</(.*)>)* with <a>b</c>
+YES: (<.*>(.*)</(.*)>)* with <>b</a>
+YES: (<.*>(.*)</(.*)>)* with <a href="#"></a>
 YES: (<.*>(.*)</(.*)>)* with 
-NO:  (<.*>(.*)</(.*)>)* with <></><>
-NO:  (<.*>(.*)</(.*)>)* with <a>b</a><b>a</b>
-NO:  (<.*>(.*)</(.*)>)* with <br /><a href="#hello">hi</a>
+YES: (<.*>(.*)</(.*)>)* with <></><>
+YES: (<.*>(.*)</(.*)>)* with <a>b</a><b>a</b>
+YES: (<.*>(.*)</(.*)>)* with <br /><a href="#hello">hi</a>
 NO:  (<.*>(.*)</(.*)>)* with <a>b<a>
 NO:  (<.*>(.*)</(.*)>)* with hello
 NO:  (<.*>(.*)</(.*)>)* with <br />
@@ -288,13 +288,13 @@ YES: ((H*)*)* with
 YES: ((H*)*)* with H
 YES: ((H*)*)* with HHH
 YES: ((H*)*)* with HHHHH
-NO:  ( with -
-NO:  ) with -
-NO:  * with -
-YES: (a with a
-YES: (a(b) with ab
-YES: (a(b))) with ab
-YES: a|* with a
-NO:  [^(]* with aa
-NO:  \(a with error
-NO:  (*a) with a
+SYNTAX ERROR: ( with -
+SYNTAX ERROR: ) with -
+SYNTAX ERROR: * with -
+SYNTAX ERROR: (a with a
+SYNTAX ERROR: (a(b) with ab
+SYNTAX ERROR: (a(b))) with ab
+SYNTAX ERROR: a|* with a
+SYNTAX ERROR: [^(]* with aa
+SYNTAX ERROR: \(a with error
+SYNTAX ERROR: (*a) with a

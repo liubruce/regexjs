@@ -1,33 +1,8 @@
 const { createMatcher } = require('./regex');
-//const readline = require('readline');
-
-// const match = createMatcher('(a|b)*c');
-//
-// return;
-//
-// const rl = readline.createInterface({
-//     input: process.stdin,
-//     output: process.stdout
-// });
-//
-// rl.question(`Pattern: `, (pattern) => {
-//     const match = createMatcher(pattern);
-//
-//     console.log('Check words: ');
-//
-//     rl.on('line', (input) => {
-//         console.log(`Match? ${match(input)}`);
-//     });
-// });
 
 const fs = require('fs');
 
 const expressions = [], targets = [], origin_expected = [], expected = [], exceptioned = [];
-
-// const rl = readline.createInterface({
-//     input: process.stdin,
-//     output: process.stdout
-// });
 
 const { once } = require('events');
 const { createReadStream } = require('fs');
@@ -45,7 +20,60 @@ function getResultText(result) {
 	}
 }
 
+function findParentheseIndex(array) {
+	const left = [], right = [];
+
+	let idx = array.indexOf('(');
+	while (idx !== -1) {
+		left.push(idx);
+		idx = array.indexOf('(', idx + 1);
+	}
+
+	idx = array.indexOf(')');
+	while (idx !== -1) {
+		right.push(idx);
+		idx = array.indexOf(')', idx + 1);
+	}
+	console.log(left,':', right);
+	if (left.length === right.length){
+		if (left.length > 1 && left[1] < right[0]){
+			return right[right.length-1];
+		}else
+			return array.indexOf(')')
+	}else
+		return -1;
+}
+
+
+function initMatch(pattern) {
+	if (pattern === ")" || pattern === "*" ) {
+		return 'SYNTAX ERROR';
+	}
+	if (pattern.indexOf(")") > -1 || pattern.indexOf("(") > -1 ) {
+		const groupEnd = findParentheseIndex(pattern);
+		if (groupEnd === -1) {
+			return 'SYNTAX ERROR';
+		}
+	}
+	const starIndex = pattern.indexOf("*");
+	if (starIndex === 0) {
+		return 'SYNTAX ERROR';
+	}
+	if (starIndex > 0) {
+		if (pattern[starIndex-1] === '|' || pattern[starIndex-1] === ']' || pattern[starIndex-1] === '(')
+			return 'SYNTAX ERROR';
+	}
+	if (pattern.indexOf("\\(") > -1){
+		return 'SYNTAX ERROR';
+	}
+	return 0;
+}
+
 (async function processLineByLine() {
+	// const match = createMatcher('a*');
+	// const result = match('');
+	// console.log(result);
+	// return;
 	try {
 		const rl = createInterface({
 			input: createReadStream('../data/expressions.txt'),
@@ -80,13 +108,17 @@ function getResultText(result) {
 
 		await once(rlOriginExpected, 'close');
 
-		//console.log('File processed.');
-		//console.log('expressions.length=', expressions, expressions.length);
 		let i =0;
 		for (i = 0;i < expressions.length; i++){
 			//console.log(`${i+1} Expression ${expressions[i]} -> ${targets[i]}`);
-			const match = createMatcher(expressions[i]);
-			const result = match(targets[i] || '');
+			const initResult = initMatch(expressions[i]);
+			let result;
+			if (initResult === 0){
+				const match = createMatcher(expressions[i]);
+				result = match(targets[i] || '');
+			}else
+				result = initResult;
+
 			const strExpected = `${getResultText(result)} ${expressions[i]} with ${targets[i]}`;
 			if (strExpected !== origin_expected[i]) {
 				exceptioned.push(`${i+1} ${origin_expected[i]} but my is ${strExpected}`);

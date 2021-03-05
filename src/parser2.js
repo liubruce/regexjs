@@ -23,7 +23,7 @@ let pos = 0;
 
 const peek = () => pattern[pos];
 const hasMoreChars = () => pos < pattern.length;
-const isMetaChar = ch => ch === '*'|| ch === '.';// || ch === '?';
+const isMetaChar = ch => ch === '*';// || ch === '?';
 
 function match(ch) {
     // if (peek() !== ch)
@@ -40,7 +40,7 @@ function next() {
 
 function expr() {
     const trm = term();
-
+	console.log('enter expr', isMetaChar(peek()), peek(), pos);
     if (hasMoreChars() && peek() === '|') {
         match('|');
         const exp = expr();
@@ -52,7 +52,7 @@ function expr() {
 
 function term() {
     const factr = factor();
-
+	console.log('enter term', isMetaChar(peek()), peek(),pos);
     if (hasMoreChars() && peek() !== ')' && peek() !== '|') {
         const trm = term();
         return new TreeNode('Term', [factr, trm]);
@@ -63,7 +63,7 @@ function term() {
 
 function factor() {
     const atm = atom();
-
+console.log('enter factor', isMetaChar(peek()), peek(),pos);
     if (hasMoreChars() && isMetaChar(peek())) {
         const meta = next();
         return new TreeNode('Factor', [atm, new TreeNode(meta)]);
@@ -73,6 +73,7 @@ function factor() {
 }
 
 function atom() {
+	console.log('enter atom', isMetaChar(peek()), peek(),pos);
     if (peek() === '(') {
         match('(');
         const exp = expr();
@@ -85,9 +86,10 @@ function atom() {
 }
 
 function char() {
+	console.log('enter char', isMetaChar(peek()), peek(),pos);
     // if (isMetaChar(peek()))
     //     throw new Error(`Unexpected meta char ${peek()}`);
-		//
+
     // if (peek() === '\\') {
     //     match('\\');
     //     return new TreeNode('Char', [new TreeNode('\\'), new TreeNode(next())]);
@@ -99,7 +101,7 @@ function char() {
 function toParseTree(regex) {
     pattern = regex;
     pos = 0;
-
+console.log('enter toParseTree', regex,peek());
     return expr();
 }
 
