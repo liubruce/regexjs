@@ -34,7 +34,6 @@ function findParentheseIndex(array) {
 		right.push(idx);
 		idx = array.indexOf(')', idx + 1);
 	}
-	console.log(left,':', right);
 	if (left.length === right.length){
 		if (left.length > 1 && left[1] < right[0]){
 			return right[right.length-1];
@@ -70,8 +69,8 @@ function initMatch(pattern) {
 }
 
 (async function processLineByLine() {
-	// const match = createMatcher('a*');
-	// const result = match('');
+	// const match = createMatcher('|b');
+	// const result = match('b');
 	// console.log(result);
 	// return;
 	try {
