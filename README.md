@@ -15,7 +15,7 @@ __________
 
 A regular expression engine implementation in JavaScript. It supports concatenation, union (|), wildcards(.), zero-or-more (\*), operations as well as grouping. It follows Ken Thompson's algorithm for constructing an NFA from a regular expression.
 
-Check out my [blog post](https://deniskyashif.com/2019/02/17/implementing-a-regular-expression-engine/) for the complete implementation details.
+Check out denis's [blog post](https://deniskyashif.com/2019/02/17/implementing-a-regular-expression-engine/) for the complete implementation details.
 
 ### Example
 ```javascript
