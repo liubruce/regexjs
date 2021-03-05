@@ -4,15 +4,16 @@
 
 This is a good regular expression engine. I refer this to finish my course work.
 
-I add the wildcard feature using the char ".".
+I added the wildcard feature using the char "." but I removed one-or-more (+), and zero-or-one (?).
 
 Other functions are simliar the original one.
+Sorry, I didn't finish the test function. Please don't use it.
 
-Original one is below:
+The detail is below:
 
 __________
 
-A regular expression engine implementation in JavaScript. It supports concatenation, union (|), zero-or-more (\*), one-or-more (+), and zero-or-one (?) operations as well as grouping. It follows Ken Thompson's algorithm for constructing an NFA from a regular expression.
+A regular expression engine implementation in JavaScript. It supports concatenation, union (|), wildcards(.), zero-or-more (\*), operations as well as grouping. It follows Ken Thompson's algorithm for constructing an NFA from a regular expression.
 
 Check out my [blog post](https://deniskyashif.com/2019/02/17/implementing-a-regular-expression-engine/) for the complete implementation details.
 
