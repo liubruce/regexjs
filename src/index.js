@@ -75,7 +75,7 @@ function initMatch(pattern) {
 	// return;
 	try {
 		const rl = createInterface({
-			input: createReadStream('../data/expressions.txt'),
+			input: createReadStream('./expressions.txt'),
 			crlfDelay: Infinity
 		});
 
@@ -84,7 +84,7 @@ function initMatch(pattern) {
 		});
 
 		const rlTarget = createInterface({
-			input: createReadStream('../data/targets.txt'),
+			input: createReadStream('./targets.txt'),
 			crlfDelay: Infinity
 		});
 
@@ -93,7 +93,7 @@ function initMatch(pattern) {
 		});
 
 		const rlOriginExpected = createInterface({
-			input: createReadStream('../data/expected.txt'),
+			input: createReadStream('./expected.txt'),
 			crlfDelay: Infinity
 		});
 
