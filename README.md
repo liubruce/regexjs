@@ -26,7 +26,9 @@ match('ac'); // true
 match('abc'); // true
 match('aabababbbc'); // true
 match('aaaab'); // false
-```
+
+### Example2
+
 const { createMatcher } = require('./regex');
 const match = createMatcher('a.');
 
@@ -36,7 +38,7 @@ match('ac'); // true
 
 
 ### Try It
-```
+
 git clone https://github.com/liubruce/regexjs.git
 cd regexjs
 npm i
